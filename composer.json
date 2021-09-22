@@ -1,5 +1,5 @@
 {
-    "name": "itigoppo/backlog-api",
+    "name": "ipublishingjp/backlog-api",
     "description": "Backlog API Library for PHP",
     "type": "library",
     "require": {
@@ -17,6 +17,11 @@
             "name": "itigoppo",
             "email": "itigoppo+github@gmail.com",
             "homepage": "http://twitter.com/itigoppo"
+        },
+        {
+            "name": "Yukimune Takagi",
+            "email": "takagi@ipublishing.jp",
+            "homepage": "https://www.ipublishing.jp/"
         }
     ],
     "minimum-stability": "stable",
