@@ -42,7 +42,7 @@ class ApiKeyConnector extends Connector
             throw new BacklogException('', $response->getStatusCode());
         }
 
-        return json_decode($response->getBody()->getContents(), true);
+        return json_decode($response->getBody()->getContents(), false);
     }
 
     /**
@@ -61,7 +61,7 @@ class ApiKeyConnector extends Connector
             throw new BacklogException($exception->getMessage(), $exception->getCode(), $exception->getPrevious());
         }
 
-        return json_decode($response->getBody()->getContents(), true);
+        return json_decode($response->getBody()->getContents(), false);
     }
 
     /**
@@ -80,7 +80,7 @@ class ApiKeyConnector extends Connector
             throw new BacklogException($exception->getMessage(), $exception->getCode(), $exception->getPrevious());
         }
 
-        return json_decode($response->getBody()->getContents(), true);
+        return json_decode($response->getBody()->getContents(), false);
     }
 
     /**
@@ -99,7 +99,7 @@ class ApiKeyConnector extends Connector
             throw new BacklogException($exception->getMessage(), $exception->getCode(), $exception->getPrevious());
         }
 
-        return json_decode($response->getBody()->getContents(), true);
+        return json_decode($response->getBody()->getContents(), false);
     }
 
     /**
@@ -118,7 +118,7 @@ class ApiKeyConnector extends Connector
             throw new BacklogException($exception->getMessage(), $exception->getCode(), $exception->getPrevious());
         }
 
-        return json_decode($response->getBody()->getContents(), true);
+        return json_decode($response->getBody()->getContents(), false);
     }
 
     /**
@@ -137,7 +137,7 @@ class ApiKeyConnector extends Connector
             throw new BacklogException($exception->getMessage(), $exception->getCode(), $exception->getPrevious());
         }
 
-        return json_decode($response->getBody()->getContents(), true);
+        return json_decode($response->getBody()->getContents(), false);
     }
 
     /**
