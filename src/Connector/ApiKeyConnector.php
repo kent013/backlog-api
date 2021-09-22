@@ -22,7 +22,11 @@ class ApiKeyConnector extends Connector
         $this->api_key = $api_key;
     }
 
-    public function get($path, $form_params = [], $query_params = [], $headers = [])
+    /**
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws BacklogException
+     */
+    public function get(string $path, array $form_params = [], array $query_params = [], array $headers = [])
     {
         try {
             $response = $this->client->request('GET', $path, [
@@ -34,14 +38,18 @@ class ApiKeyConnector extends Connector
             throw new BacklogException($exception->getMessage(), $exception->getCode(), $exception->getPrevious());
         }
 
-        if ($response->getStatusCode() != '200') {
+        if ($response->getStatusCode() !== 200) {
             throw new BacklogException('', $response->getStatusCode());
         }
 
-        return json_decode($response->getBody()->getContents());
+        return json_decode($response->getBody()->getContents(), true);
     }
 
-    public function post($path, $form_params = [], $query_params = [], $headers = [])
+    /**
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws BacklogException
+     */
+    public function post(string $path, array $form_params = [], array $query_params = [], array $headers = [])
     {
         try {
             $response = $this->client->request('POST', $path, [
@@ -53,10 +61,14 @@ class ApiKeyConnector extends Connector
             throw new BacklogException($exception->getMessage(), $exception->getCode(), $exception->getPrevious());
         }
 
-        return json_decode($response->getBody()->getContents());
+        return json_decode($response->getBody()->getContents(), true);
     }
 
-    public function put($path, $form_params = [], $query_params = [], $headers = [])
+    /**
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws BacklogException
+     */
+    public function put(string $path, array $form_params = [], array $query_params = [], array $headers = [])
     {
         try {
             $response = $this->client->request('PUT', $path, [
@@ -68,10 +80,14 @@ class ApiKeyConnector extends Connector
             throw new BacklogException($exception->getMessage(), $exception->getCode(), $exception->getPrevious());
         }
 
-        return json_decode($response->getBody()->getContents());
+        return json_decode($response->getBody()->getContents(), true);
     }
 
-    public function patch($path, $form_params = [], $query_params = [], $headers = [])
+    /**
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws BacklogException
+     */
+    public function patch(string $path, array $form_params = [], array $query_params = [], array $headers = [])
     {
         try {
             $response = $this->client->request('PATCH', $path, [
@@ -83,10 +99,14 @@ class ApiKeyConnector extends Connector
             throw new BacklogException($exception->getMessage(), $exception->getCode(), $exception->getPrevious());
         }
 
-        return json_decode($response->getBody()->getContents());
+        return json_decode($response->getBody()->getContents(), true);
     }
 
-    public function delete($path, $form_params = [], $query_params = [], $headers = [])
+    /**
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws BacklogException
+     */
+    public function delete(string $path, array $form_params = [], array $query_params = [], array $headers = [])
     {
         try {
             $response = $this->client->request('DELETE', $path, [
@@ -98,10 +118,14 @@ class ApiKeyConnector extends Connector
             throw new BacklogException($exception->getMessage(), $exception->getCode(), $exception->getPrevious());
         }
 
-        return json_decode($response->getBody()->getContents());
+        return json_decode($response->getBody()->getContents(), true);
     }
 
-    public function postFile($path, $multipart, $query_params = [], $headers = [])
+    /**
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws BacklogException
+     */
+    public function postFile(string $path, array $multipart, array $query_params = [], array $headers = [])
     {
         try {
             $response = $this->client->request('POST', $path, [
@@ -113,10 +137,14 @@ class ApiKeyConnector extends Connector
             throw new BacklogException($exception->getMessage(), $exception->getCode(), $exception->getPrevious());
         }
 
-        return json_decode($response->getBody()->getContents());
+        return json_decode($response->getBody()->getContents(), true);
     }
 
-    public function getFile($path, $form_params = [], $query_params = [], $headers = [])
+    /**
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws BacklogException
+     */
+    public function getFile(string $path, array $form_params = [], array $query_params = [], array $headers = []): \GuzzleHttp\Psr7\Response
     {
         try {
             $response = $this->client->request('GET', $path, [
@@ -128,7 +156,7 @@ class ApiKeyConnector extends Connector
             throw new BacklogException($exception->getMessage(), $exception->getCode(), $exception->getPrevious());
         }
 
-        if ($response->getStatusCode() != '200') {
+        if ($response->getStatusCode() !== 200) {
             throw new BacklogException('', $response->getStatusCode());
         }
 

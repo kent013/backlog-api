@@ -16,10 +16,10 @@ class Wikis
     /**
      * Wikiページ一覧の取得
      *
-     * @param string $project_id_or_key
+     * @param  string  $project_id_or_key
      * @return mixed|string
      */
-    public function load($project_id_or_key)
+    public function load(string $project_id_or_key)
     {
         $query_params = [
             'projectIdOrKey' => $project_id_or_key,
@@ -31,10 +31,10 @@ class Wikis
     /**
      * Wikiページ数の取得
      *
-     * @param string $project_id_or_key
+     * @param  string  $project_id_or_key
      * @return mixed|string
      */
-    public function count($project_id_or_key)
+    public function count(string $project_id_or_key)
     {
         $query_params = [
             'projectIdOrKey' => $project_id_or_key,
@@ -46,10 +46,10 @@ class Wikis
     /**
      * Wikiページタグ一覧の取得
      *
-     * @param string $project_id_or_key
+     * @param  string  $project_id_or_key
      * @return mixed|string
      */
-    public function tags($project_id_or_key)
+    public function tags(string $project_id_or_key)
     {
         $query_params = [
             'projectIdOrKey' => $project_id_or_key,
@@ -61,13 +61,13 @@ class Wikis
     /**
      * Wikiページの追加
      *
-     * @param int $project_id
-     * @param string $name
-     * @param string $content
-     * @param array $form_options
+     * @param  int  $project_id
+     * @param  string  $name
+     * @param  string  $content
+     * @param  array  $form_options
      * @return mixed|string
      */
-    public function create($project_id, $name, $content, $form_options = [])
+    public function create(int $project_id, string $name, string $content, array $form_options = [])
     {
         $headers = [
             'Content-Type' => 'application/x-www-form-urlencoded'
@@ -85,10 +85,10 @@ class Wikis
     /**
      * Wikiページ情報の取得
      *
-     * @param int $wiki_id
+     * @param  int  $wiki_id
      * @return mixed|string
      */
-    public function find($wiki_id)
+    public function find(int $wiki_id)
     {
         return $this->connector->get(sprintf('wikis/%s', $wiki_id));
     }
@@ -96,11 +96,11 @@ class Wikis
     /**
      * Wikiページ情報の更新
      *
-     * @param int $wiki_id
-     * @param array $form_options
+     * @param  int  $wiki_id
+     * @param  array  $form_options
      * @return mixed|string
      */
-    public function update($wiki_id, $form_options = [])
+    public function update(int $wiki_id, array $form_options = [])
     {
         $headers = [
             'Content-Type' => 'application/x-www-form-urlencoded'
@@ -115,10 +115,10 @@ class Wikis
     /**
      * Wikiページの削除
      *
-     * @param int $wiki_id
+     * @param  int  $wiki_id
      * @return mixed|string
      */
-    public function delete($wiki_id)
+    public function delete(int $wiki_id)
     {
         return $this->connector->delete(sprintf('wikis/%s', $wiki_id));
     }
@@ -126,10 +126,10 @@ class Wikis
     /**
      * Wiki添付ファイル一覧の取得
      *
-     * @param int $wiki_id
+     * @param  int  $wiki_id
      * @return mixed|string
      */
-    public function attachments($wiki_id)
+    public function attachments(int $wiki_id)
     {
         return $this->connector->get(sprintf('wikis/%s/attachments', $wiki_id));
     }
@@ -137,11 +137,11 @@ class Wikis
     /**
      * Wikiページ更新履歴一覧の取得
      *
-     * @param int $wiki_id
-     * @param array $query_options
+     * @param  int  $wiki_id
+     * @param  array  $query_options
      * @return mixed|string
      */
-    public function history($wiki_id, $query_options = [])
+    public function history(int $wiki_id, array $query_options = [])
     {
         $query_params = [
             ] + $query_options;
@@ -152,10 +152,10 @@ class Wikis
     /**
      * Wikiページのスター一覧の取得
      *
-     * @param int $wiki_id
+     * @param  int  $wiki_id
      * @return mixed|string
      */
-    public function stars($wiki_id)
+    public function stars(int $wiki_id)
     {
         return $this->connector->get(sprintf('wikis/%s/stars', $wiki_id));
     }

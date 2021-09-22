@@ -26,31 +26,31 @@ class Backlog
     protected $connector;
 
     /** @var null|Space */
-    protected $_space = null;
+    protected $_space;
 
     /** @var null|Users */
-    protected $_users = null;
+    protected $_users;
 
     /** @var null|Groups */
-    protected $_groups = null;
+    protected $_groups;
 
     /** @var null|Projects */
-    protected $_projects = null;
+    protected $_projects;
 
     /** @var null|Issues */
-    protected $_issues = null;
+    protected $_issues;
 
     /** @var null|Wikis */
-    protected $_wikis = null;
+    protected $_wikis;
 
     /** @var null|Notifications */
-    protected $_notifications = null;
+    protected $_notifications;
 
     /** @var null|Git */
-    protected $_git = null;
+    protected $_git;
 
     /** @var null|Watchings */
-    protected $_watchings = null;
+    protected $_watchings;
 
     public function __construct($connector)
     {
@@ -60,7 +60,7 @@ class Backlog
     /**
      * 状態一覧の取得
      *
-     * @return array
+     * @return mixed|string
      * @deprecated プロジェクトごとになりました('19/10/18) @link $backlog->projects->statuses($project_id_or_key)
      */
     public function statuses()
@@ -91,10 +91,10 @@ class Backlog
     /**
      * スターの追加
      *
-     * @param array $form_options
+     * @param  array  $form_options
      * @return mixed|string
      */
-    public function addStar($form_options = [])
+    public function addStar(array $form_options = [])
     {
         $headers = [
             'Content-Type' => 'application/x-www-form-urlencoded'
@@ -109,11 +109,11 @@ class Backlog
     /**
      * Magic getter
      *
-     * @param string $name
+     * @param  string  $name
      * @return mixed
      * @throws BacklogException
      */
-    public function __get($name)
+    public function __get(string $name)
     {
         $method = 'get' . ucfirst($name);
         if (method_exists($this, $method)) {
@@ -127,7 +127,7 @@ class Backlog
      *
      * @return Space|null
      */
-    protected function getSpace()
+    protected function getSpace(): ?Space
     {
         if (!$this->_space) {
             $this->_space = new Space($this->connector);
@@ -141,7 +141,7 @@ class Backlog
      *
      * @return Users|null
      */
-    protected function getUsers()
+    protected function getUsers(): ?Users
     {
         if (!$this->_users) {
             $this->_users = new Users($this->connector);
@@ -155,7 +155,7 @@ class Backlog
      *
      * @return Groups|null
      */
-    protected function getGroups()
+    protected function getGroups(): ?Groups
     {
         if (!$this->_groups) {
             $this->_groups = new Groups($this->connector);
@@ -169,7 +169,7 @@ class Backlog
      *
      * @return Projects|null
      */
-    protected function getProjects()
+    protected function getProjects(): ?Projects
     {
         if (!$this->_projects) {
             $this->_projects = new Projects($this->connector);
@@ -183,7 +183,7 @@ class Backlog
      *
      * @return Issues|null
      */
-    protected function getIssues()
+    protected function getIssues(): ?Issues
     {
         if (!$this->_issues) {
             $this->_issues = new Issues($this->connector);
@@ -197,7 +197,7 @@ class Backlog
      *
      * @return Wikis|null
      */
-    protected function getWikis()
+    protected function getWikis(): ?Wikis
     {
         if (!$this->_wikis) {
             $this->_wikis = new Wikis($this->connector);
@@ -211,7 +211,7 @@ class Backlog
      *
      * @return Notifications|null
      */
-    protected function getNotifications()
+    protected function getNotifications(): ?Notifications
     {
         if (!$this->_notifications) {
             $this->_notifications = new Notifications($this->connector);
@@ -225,7 +225,7 @@ class Backlog
      *
      * @return Git|null
      */
-    protected function getGit()
+    protected function getGit(): ?Git
     {
         if (!$this->_git) {
             $this->_git = new Git($this->connector);
@@ -239,7 +239,7 @@ class Backlog
      *
      * @return Watchings|null
      */
-    protected function getWatchings()
+    protected function getWatchings(): ?Watchings
     {
         if (!$this->_watchings) {
             $this->_watchings = new Watchings($this->connector);

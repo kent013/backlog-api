@@ -26,10 +26,10 @@ class Users
     /**
      * ユーザー情報の取得
      *
-     * @param int $user_id
+     * @param  int  $user_id
      * @return mixed|string
      */
-    public function find($user_id)
+    public function find(int $user_id)
     {
         return $this->connector->get('users/' . $user_id);
     }
@@ -37,16 +37,16 @@ class Users
     /**
      * Add User
      *
-     * @param string $user_id
-     * @param string $password
-     * @param string $name
-     * @param string $mail_address
-     * @param int $role_type
+     * @param  string  $user_id
+     * @param  string  $password
+     * @param  string  $name
+     * @param  string  $mail_address
+     * @param  int  $role_type
      * @return mixed|string
      *
      * @see https://developer.nulab-inc.com/docs/backlog/api/2/add-user/
      */
-    public function create($user_id, $password, $name, $mail_address, $role_type = 2)
+    public function create(string $user_id, string $password, string $name, string $mail_address, int $role_type = 2)
     {
         $form_params = [
             'userId' => $user_id,
@@ -72,11 +72,11 @@ class Users
     /**
      * ユーザーの最近の活動の取得
      *
-     * @param int $user_id
-     * @param array $query_options
+     * @param  int  $user_id
+     * @param  array  $query_options
      * @return mixed|string
      */
-    public function activities($user_id, $query_options = [])
+    public function activities(int $user_id, array $query_options = [])
     {
         $query_params = [
             ] + $query_options;
@@ -87,11 +87,11 @@ class Users
     /**
      * ユーザーの受け取ったスター一覧の取得
      *
-     * @param int $user_id
-     * @param array $query_options
+     * @param  int  $user_id
+     * @param  array  $query_options
      * @return mixed|string
      */
-    public function stars($user_id, $query_options = [])
+    public function stars(int $user_id, array $query_options = [])
     {
         $query_params = [
             ] + $query_options;
@@ -102,11 +102,11 @@ class Users
     /**
      * ユーザーの受け取ったスターの数の取得
      *
-     * @param int $user_id
-     * @param array $query_options
+     * @param  int  $user_id
+     * @param  array  $query_options
      * @return mixed|string
      */
-    public function numberOfStars($user_id, $query_options = [])
+    public function numberOfStars(int $user_id, array $query_options = [])
     {
         $query_params = [
             ] + $query_options;
@@ -117,10 +117,10 @@ class Users
     /**
      * 自分が最近見た課題一覧の取得
      *
-     * @param array $query_options
+     * @param  array  $query_options
      * @return mixed|string
      */
-    public function recentlyViewedIssues($query_options = [])
+    public function recentlyViewedIssues(array $query_options = [])
     {
         $query_params = [
             ] + $query_options;
@@ -131,10 +131,10 @@ class Users
     /**
      * 自分が最近見たプロジェクト一覧の取得
      *
-     * @param array $query_options
+     * @param  array  $query_options
      * @return mixed|string
      */
-    public function recentlyViewedProjects($query_options = [])
+    public function recentlyViewedProjects(array $query_options = [])
     {
         $query_params = [
             ] + $query_options;
@@ -145,10 +145,10 @@ class Users
     /**
      * 自分が最近見たWiki一覧の取得
      *
-     * @param array $query_options
+     * @param  array  $query_options
      * @return mixed|string
      */
-    public function recentlyViewedWikis($query_options = [])
+    public function recentlyViewedWikis(array $query_options = [])
     {
         $query_params = [
             ] + $query_options;

@@ -16,10 +16,10 @@ class Groups
     /**
      * グループ一覧の取得
      *
-     * @param array $query_options
+     * @param  array  $query_options
      * @return mixed|string
      */
-    public function load($query_options = [])
+    public function load(array $query_options = [])
     {
         $query_params = [
             ] + $query_options;
@@ -30,10 +30,10 @@ class Groups
     /**
      * グループ情報の取得
      *
-     * @param int $group_id
+     * @param  int  $group_id
      * @return mixed|string
      */
-    public function find($group_id)
+    public function find(int $group_id)
     {
         return $this->connector->get(sprintf('groups/%d', $group_id));
     }

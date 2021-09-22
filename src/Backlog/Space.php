@@ -26,15 +26,15 @@ class Space
     /**
      * 最近の更新の取得
      *
-     * @param null|int $activity_type_id
-     * @param null|int $min_id
-     * @param null|int $max_id
-     * @param int $count
-     * @param string $order
+     * @param  int|null  $activity_type_id
+     * @param  int|null  $min_id
+     * @param  int|null  $max_id
+     * @param  int  $count
+     * @param  string  $order
      * @return mixed|string
      * @internal param array $params
      */
-    public function activities($activity_type_id = null, $min_id = null, $max_id = null, $count = 20, $order = 'desc')
+    public function activities(int $activity_type_id = null, int $min_id = null, int $max_id = null, int $count = 20, string $order = 'desc')
     {
         $query_params = [
             'activityTypeId' => $activity_type_id,
@@ -60,10 +60,10 @@ class Space
     /**
      * スペースのお知らせの更新
      *
-     * @param string $content
+     * @param  string  $content
      * @return mixed|string
      */
-    public function putNotification($content)
+    public function putNotification(string $content)
     {
         $query_params = [
             'content' => $content,
@@ -85,11 +85,11 @@ class Space
     /**
      * Post Attachment File
      *
-     * @param array $multipart
+     * @param  array  $multipart
      * @return mixed|string
      * @see https://developer.nulab-inc.com/docs/backlog/api/2/post-attachment-file/
      */
-    public function postAttachment($multipart)
+    public function postAttachment(array $multipart)
     {
         return $this->connector->postFile('space/attachment', $multipart);
     }

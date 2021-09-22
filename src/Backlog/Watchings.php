@@ -16,11 +16,11 @@ class Watchings
     /**
      * ウォッチ一覧の取得
      *
-     * @param int $user_id
-     * @param array $query_options
+     * @param  int  $user_id
+     * @param  array  $query_options
      * @return mixed|string
      */
-    public function load($user_id, $query_options = [])
+    public function load(int $user_id, array $query_options = [])
     {
         $query_params = [
             ] + $query_options;
@@ -31,11 +31,11 @@ class Watchings
     /**
      * ウォッチ数の取得
      *
-     * @param int $user_id
-     * @param array $query_options
+     * @param  int  $user_id
+     * @param  array  $query_options
      * @return mixed|string
      */
-    public function count($user_id, $query_options = [])
+    public function count(int $user_id, array $query_options = [])
     {
         $query_params = [
             ] + $query_options;
@@ -46,10 +46,10 @@ class Watchings
     /**
      * ウォッチ情報の取得
      *
-     * @param int $watching_id
+     * @param  int  $watching_id
      * @return mixed|string
      */
-    public function find($watching_id)
+    public function find(int $watching_id)
     {
         return $this->connector->get(sprintf('watchings/%d', $watching_id));
     }
@@ -57,11 +57,11 @@ class Watchings
     /**
      * ウォッチの追加
      *
-     * @param string $issues_id_or_key
-     * @param array $form_options
+     * @param  string  $issues_id_or_key
+     * @param  array  $form_options
      * @return mixed|string
      */
-    public function create($issues_id_or_key, $form_options = [])
+    public function create(string $issues_id_or_key, array $form_options = [])
     {
         $headers = [
             'Content-Type' => 'application/x-www-form-urlencoded'
@@ -77,11 +77,11 @@ class Watchings
     /**
      * ウォッチの更新
      *
-     * @param int $watching_id
-     * @param array $form_options
+     * @param  int  $watching_id
+     * @param  array  $form_options
      * @return mixed|string
      */
-    public function update($watching_id, $form_options = [])
+    public function update(int $watching_id, array $form_options = [])
     {
         $headers = [
             'Content-Type' => 'application/x-www-form-urlencoded'
@@ -96,10 +96,10 @@ class Watchings
     /**
      * ウォッチの削除
      *
-     * @param int $watching_id
+     * @param  int  $watching_id
      * @return mixed|string
      */
-    public function delete($watching_id)
+    public function delete(int $watching_id)
     {
         return $this->connector->delete(sprintf('watchings/%d', $watching_id));
     }
@@ -107,10 +107,10 @@ class Watchings
     /**
      * ウォッチの既読化
      *
-     * @param int $watching_id
+     * @param  int  $watching_id
      * @return mixed|string
      */
-    public function markAsRead($watching_id)
+    public function markAsRead(int $watching_id)
     {
         return $this->connector->post(sprintf('watchings/%d/markAsRead', $watching_id));
     }

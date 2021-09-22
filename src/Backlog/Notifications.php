@@ -16,10 +16,10 @@ class Notifications
     /**
      * お知らせ一覧の取得
      *
-     * @param array $query_options
+     * @param  array  $query_options
      * @return mixed|string
      */
-    public function load($query_options = [])
+    public function load(array $query_options = [])
     {
         $query_params = [
             ] + $query_options;
@@ -30,10 +30,10 @@ class Notifications
     /**
      * お知らせ数の取得
      *
-     * @param array $query_options
+     * @param  array  $query_options
      * @return mixed|string
      */
-    public function count($query_options = [])
+    public function count(array $query_options = [])
     {
         $query_params = [
             ] + $query_options;
@@ -54,10 +54,10 @@ class Notifications
     /**
      * お知らせの既読化
      *
-     * @param int $notification_id
+     * @param  int  $notification_id
      * @return mixed|string
      */
-    public function markAsRead($notification_id)
+    public function markAsRead(int $notification_id)
     {
         return $this->connector->post(sprintf('notifications/%d/markAsRead', $notification_id));
     }
