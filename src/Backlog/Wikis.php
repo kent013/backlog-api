@@ -140,7 +140,7 @@ class Wikis
      * @param  int  $wiki_id
      * @return mixed|string
      */
-    public function createAttachments(int $wiki_id, string $filename, mixed $contents)
+    public function createAttachment(int $wiki_id, string $filename, mixed $contents)
     {
         return $this->connector->post(sprintf('wikis/%s/attachments', $wiki_id), ['name' => $filename, 'contents' => $contents]);
     }
@@ -152,7 +152,7 @@ class Wikis
      * @param int $attachement_id
      * @return mixed|string
      */
-    public function deleteAttachments(int $wiki_id, int $attachement_id)
+    public function deleteAttachment(int $wiki_id, int $attachement_id)
     {
         return $this->connector->delete(sprintf('wikis/%s/attachments/%s', $wiki_id, $attachement_id));
     }
