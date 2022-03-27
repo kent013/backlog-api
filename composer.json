@@ -1,5 +1,5 @@
 {
-    "name": "ipublishingjp/backlog-api",
+    "name": "kent013/backlog-api",
     "description": "Backlog API Library for PHP",
     "type": "library",
     "require": {
@@ -22,6 +22,11 @@
             "name": "Yukimune Takagi",
             "email": "takagi@ipublishing.jp",
             "homepage": "https://www.ipublishing.jp/"
+        },
+        {
+            "name": "kent013",
+            "email": "kentaro.ishitoya@gmail.com",
+            "homepage": "https://kentaro.ishitoya.info/"
         }
     ],
     "minimum-stability": "stable",
