@@ -135,6 +135,29 @@ class Wikis
     }
 
     /**
+     * Wikiにファイルを添付する
+     *
+     * @param  int  $wiki_id
+     * @return mixed|string
+     */
+    public function createAttachments(int $wiki_id, string $filename, mixed $contents)
+    {
+        return $this->connector->post(sprintf('wikis/%s/attachments', $wiki_id), ['name' => $filename, 'contents' => $contents]);
+    }
+
+    /**
+     * Wikiにファイルを添付する
+     *
+     * @param  int  $wiki_id
+     * @param int $attachement_id
+     * @return mixed|string
+     */
+    public function deleteAttachments(int $wiki_id, int $attachement_id)
+    {
+        return $this->connector->delete(sprintf('wikis/%s/attachments/%s', $wiki_id, $attachement_id));
+    }
+
+    /**
      * Wikiページ更新履歴一覧の取得
      *
      * @param  int  $wiki_id
