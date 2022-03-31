@@ -137,12 +137,21 @@ class Wikis
     /**
      * Wikiにファイルを添付する
      *
-     * @param  int  $wiki_id
+     * @param int $wiki_id
+     * @param string $filename
+     * @param mixed $contents
+     * @param int $attachmentId
      * @return mixed|string
      */
-    public function createAttachment(int $wiki_id, string $filename, mixed $contents)
+    public function createAttachment(int $wiki_id, int $attachmentId)
     {
-        return $this->connector->post(sprintf('wikis/%s/attachments', $wiki_id), ['name' => $filename, 'contents' => $contents]);
+        $multipart = [
+            [
+                'name' => 'attachmentId[]',
+                'contents' => $attachmentId,
+            ],
+        ];
+        return $this->connector->postFile(sprintf('wikis/%s/attachments', $wiki_id), $multipart);
     }
 
     /**
